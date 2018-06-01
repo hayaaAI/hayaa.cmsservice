@@ -12,5 +12,12 @@
         <module name="hayaa.cms.service.site" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="hayaa.cms.service" target="1.8" />
+      <module name="hayaa.cms.service.controller" target="1.8" />
+      <module name="hayaa.cms.service.core" target="1.8" />
+      <module name="hayaa.cms.service.site" target="1.8" />
+      <module name="hayaa.cmsservice" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
