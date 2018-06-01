@@ -63,7 +63,7 @@ public class ArticleController {
     }
 
     @RequestMapping(value = "list")
-    public TransactionResult<List<Article>> GetList() {
+    public TransactionResult<List<Article>> GetList() throws Exception {
         TransactionResult<List<Article>> result = new TransactionResult<List<Article>>();
         FunctionListResult<Article> serviceResult = articleService.GetList(new ArticleSearchPamater());
         if (serviceResult.isActionResult() && serviceResult.isHavingData()) {
@@ -77,11 +77,11 @@ public class ArticleController {
 
     @RequestMapping(value = "add")
     public TransactionResult<Article> Add(Article info) throws Exception {
-        AssertHelper.AssertRangInt(info.getarticleId(), Integer.MIN_VALUE, Integer.MAX_VALUE);
-        AssertHelper.AssertStringNullorEmpty(info.gettitle());
-        AssertHelper.AssertStringNullorEmpty(info.getsubTitle());
-        AssertHelper.AssertStringNullorEmpty(info.getcontent());
-        AssertHelper.AssertStringNullorEmpty(info.getseo());
+        AssertHelper.AssertRangInt(info.getArticleId(), Integer.MIN_VALUE, Integer.MAX_VALUE);
+        AssertHelper.AssertStringNullorEmpty(info.getTitle());
+        AssertHelper.AssertStringNullorEmpty(info.getSubTitle());
+        AssertHelper.AssertStringNullorEmpty(info.getContent());
+        AssertHelper.AssertStringNullorEmpty(info.getSeo());
         TransactionResult<Article> result = new TransactionResult<Article>();
         FunctionResult<Article> serviceResult = articleService.Create(info);
         if (serviceResult.isActionResult() && serviceResult.isHavingData()) {
@@ -95,12 +95,12 @@ public class ArticleController {
 
     @RequestMapping(value = "edit")
     public TransactionResult<Boolean> Edit(Article info) throws Exception {
-        AssertHelper.AssertRangInt(info.getarticleId(), Integer.MIN_VALUE, Integer.MAX_VALUE);
-        AssertHelper.AssertStringNullorEmpty(info.gettitle());
-        AssertHelper.AssertStringNullorEmpty(info.getsubTitle());
-        AssertHelper.AssertStringNullorEmpty(info.getcontent());
-        AssertHelper.AssertStringNullorEmpty(info.getseo());
-         TransactionResult<Boolean> result = new TransactionResult<Boolean>();
+        AssertHelper.AssertRangInt(info.getArticleId(), Integer.MIN_VALUE, Integer.MAX_VALUE);
+        AssertHelper.AssertStringNullorEmpty(info.getTitle());
+        AssertHelper.AssertStringNullorEmpty(info.getSubTitle());
+        AssertHelper.AssertStringNullorEmpty(info.getContent());
+        AssertHelper.AssertStringNullorEmpty(info.getSeo());
+        TransactionResult<Boolean> result = new TransactionResult<Boolean>();
         FunctionOpenResult<Boolean> serviceResult = articleService.UpdateByID(info);
         if (serviceResult.isActionResult()) {
             result.setData(serviceResult.getData());

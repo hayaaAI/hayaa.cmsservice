@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE mapper PUBLIC " -//mybatis.org//DTD Mapper 3.0//EN"
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC " -//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="hayaa.cms.service.core.WebSiteMapper">
-    <select id="getList" resultType="hayaa.cms.service.model.WebSite">select * from WebSite
+    <select id="getList" resultType="hayaa.cms.service.model.WebSite">
+        select * from WebSite
         <where>
             <if test="searchPamater.webSiteId != null">webSiteId = #{searchPamater.webSiteId}</if>
             <if test="searchPamater.webSiteIdMax != null and searchPamater.webSiteIdMin != null">webSiteId BETWEEN

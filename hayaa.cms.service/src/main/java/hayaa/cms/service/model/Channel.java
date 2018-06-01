@@ -2,66 +2,44 @@ package hayaa.cms.service.model;
 
 import hayaa.basemodel.model.BaseData;
 
-import java.util.Date;
-
 public class Channel extends BaseData {
     private Integer channelId;
 
-    public void setchannelId(Integer channelIdvalue) {
+    public void setChannelId(Integer channelIdvalue) {
         this.channelId = channelIdvalue;
     }
 
-    public Integer getchannelId() {
+    public Integer getChannelId() {
         return this.channelId;
     }
 
     private String name;
 
-    public void setname(String namevalue) {
+    public void setName(String namevalue) {
         this.name = namevalue;
     }
 
-    public String getname() {
+    public String getName() {
         return this.name;
     }
 
     private String title;
 
-    public void settitle(String titlevalue) {
+    public void setTitle(String titlevalue) {
         this.title = titlevalue;
     }
 
-    public String gettitle() {
+    public String getTitle() {
         return this.title;
     }
 
     private String remark;
 
-    public void setremark(String remarkvalue) {
+    public void setRemark(String remarkvalue) {
         this.remark = remarkvalue;
     }
 
-    public String getremark() {
+    public String getRemark() {
         return this.remark;
-    }
-
-    private Date createTime;
-
-    public void setcreateTime(Date createTimevalue) {
-        this.createTime = createTimevalue;
-    }
-
-    public Date getcreateTime() {
-        return this.createTime;
-    }
-
-    private Date updateTime;
-
-    public void setupdateTime(Date updateTimevalue) {
-        this.updateTime = updateTimevalue;
-    }
-
-    public Date getupdateTime() {
-        return this.updateTime;
     }
 }

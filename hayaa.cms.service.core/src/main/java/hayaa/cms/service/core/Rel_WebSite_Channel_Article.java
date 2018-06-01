@@ -45,13 +45,5 @@ public class Rel_WebSite_Channel_Article extends BaseData {
         return this.articleId;
     }
 
-    private Date createTime;
 
-    public void setcreateTime(Date createTimevalue) {
-        this.createTime = createTimevalue;
-    }
-
-    public Date getcreateTime() {
-        return this.createTime;
-    }
 }

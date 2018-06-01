@@ -8,11 +8,11 @@ import java.util.List;
 
 @Mapper
 interface ChannelMapper {
-    @Insert("insert into Channel(channelId,name,title,remark,createTime,updateTime) values(#{channel.channelId},#{channel.name},#{channel.title},#{channel.remark},#{channel.createTime},#{channel.updateTime});")
+    @Insert("insert into Channel(name,title,remark) values(#{channel.name},#{channel.title},#{channel.remark});")
     @Options(useGeneratedKeys = true, keyProperty = "channel.ChannelId")
     void insert(@Param("channel") Channel channel);
 
-    @Update("update Channel set channelId=#{channel.channelId},name=#{channel.name},title=#{channel.title},remark=#{channel.remark},createTime=#{channel.createTime},updateTime=#{channel.updateTime} where ChannelId=#{channel.ChannelId}")
+    @Update("update Channel set channelId=#{channel.channelId},name=#{channel.name},title=#{channel.title},remark=#{channel.remark} where channelId=#{channel.ChannelId}")
     Boolean update(@Param("channel") Channel channel);
 
     @Delete("delete from Channel where channelId in (${ids})")

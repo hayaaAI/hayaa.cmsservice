@@ -8,11 +8,11 @@ import java.util.List;
 
 @Mapper
 interface WebSiteMapper {
-    @Insert("insert into WebSite(webSiteId,name,title,remark,createTime,updateTime) values(#{webSite.webSiteId},#{webSite.name},#{webSite.title},#{webSite.remark},#{webSite.createTime},#{webSite.updateTime});")
+    @Insert("insert into WebSite(name,title,remark) values(#{webSite.name},#{webSite.title},#{webSite.remark});")
     @Options(useGeneratedKeys = true, keyProperty = "webSite.WebSiteId")
     void insert(@Param("webSite") WebSite webSite);
 
-    @Update("update WebSite set webSiteId=#{webSite.webSiteId},name=#{webSite.name},title=#{webSite.title},remark=#{webSite.remark},createTime=#{webSite.createTime},updateTime=#{webSite.updateTime} where WebSiteId=#{webSite.WebSiteId}")
+    @Update("update WebSite set webSiteId=#{webSite.webSiteId},name=#{webSite.name},title=#{webSite.title},remark=#{webSite.remark} where webSiteId=#{webSite.WebSiteId}")
     Boolean update(@Param("webSite") WebSite webSite);
 
     @Delete("delete from WebSite where webSiteId in (${ids})")

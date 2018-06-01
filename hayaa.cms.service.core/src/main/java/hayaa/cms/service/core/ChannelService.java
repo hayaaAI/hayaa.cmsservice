@@ -24,7 +24,7 @@ public class ChannelService implements IChannelService {
     public FunctionResult<Channel> Create(Channel info) {
         FunctionResult<Channel> r = new FunctionResult<Channel>();
         channelMapper.insert(info);
-        if (info.getchannelId() > 0) {
+        if (info.getChannelId() > 0) {
             r.setData(info);
         }
         return r;

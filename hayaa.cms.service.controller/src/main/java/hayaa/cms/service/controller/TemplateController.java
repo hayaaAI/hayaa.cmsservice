@@ -6,9 +6,9 @@ import hayaa.basemodel.model.FunctionResult;
 import hayaa.basemodel.model.GridPager.GridPager;
 import hayaa.basemodel.model.GridPager.GridPagerPamater;
 import hayaa.basemodel.model.TransactionResult;
-import hayaa.cms.service.IChannelService;
-import hayaa.cms.service.model.Channel;
-import hayaa.cms.service.model.ChannelSearchPamater;
+import hayaa.cms.service.ITemplateService;
+import hayaa.cms.service.model.Template;
+import hayaa.cms.service.model.TemplateSearchPamater;
 import hayaa.common.AssertHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -22,23 +22,23 @@ import java.util.List;
 
 @RestController
 @EnableAutoConfiguration
-@RequestMapping(value = "/channel/", method = {RequestMethod.GET, RequestMethod.POST})
+@RequestMapping(value = "/template/", method = {RequestMethod.GET, RequestMethod.POST})
 @CrossOrigin(origins = "*", allowCredentials = "true")
-public class ChannelController {
+public class TemplateController {
     @Autowired
-    private IChannelService channelService;
+    private ITemplateService templateService;
 
     @RequestMapping(value = "pager")
-    public TransactionResult<GridPager<Channel>> GetPager(int page, int size) throws Exception {
+    public TransactionResult<GridPager<Template>> GetPager(int page, int size) throws Exception {
         AssertHelper.AssertRangInt(page, 1, Integer.MAX_VALUE);
         AssertHelper.AssertRangInt(size, 1, Integer.MAX_VALUE);
-        TransactionResult<GridPager<Channel>> result = new TransactionResult<GridPager<Channel>>();
-        GridPagerPamater<ChannelSearchPamater> pamater = new GridPagerPamater<>();
-        ChannelSearchPamater sp = new ChannelSearchPamater();
+        TransactionResult<GridPager<Template>> result = new TransactionResult<GridPager<Template>>();
+        GridPagerPamater<TemplateSearchPamater> pamater = new GridPagerPamater<>();
+        TemplateSearchPamater sp = new TemplateSearchPamater();
         pamater.setSearchPamater(sp);
         pamater.setCurrent(page);
         pamater.setPageSize(size);
-        GridPager<Channel> serviceReusult = channelService.GetPager(pamater);
+        GridPager<Template> serviceReusult = templateService.GetPager(pamater);
         if (serviceReusult.isActionResult() && serviceReusult.isHavingData()) {
             result.setData(serviceReusult);
         } else {
@@ -49,10 +49,10 @@ public class ChannelController {
     }
 
     @RequestMapping(value = "get")
-    public TransactionResult<Channel> Get(int id) throws Exception {
+    public TransactionResult<Template> Get(int id) throws Exception {
         AssertHelper.AssertRangInt(id, 1, Integer.MAX_VALUE);
-        TransactionResult<Channel> result = new TransactionResult<Channel>();
-        FunctionResult<Channel> serviceResult = channelService.Get(id);
+        TransactionResult<Template> result = new TransactionResult<Template>();
+        FunctionResult<Template> serviceResult = templateService.Get(id);
         if (serviceResult.isActionResult() && serviceResult.isHavingData()) {
             result.setData(serviceResult.getData());
         } else {
@@ -63,9 +63,9 @@ public class ChannelController {
     }
 
     @RequestMapping(value = "list")
-    public TransactionResult<List<Channel>> GetList() throws Exception {
-        TransactionResult<List<Channel>> result = new TransactionResult<List<Channel>>();
-        FunctionListResult<Channel> serviceResult = channelService.GetList(new ChannelSearchPamater());
+    public TransactionResult<List<Template>> GetList() throws Exception {
+        TransactionResult<List<Template>> result = new TransactionResult<List<Template>>();
+        FunctionListResult<Template> serviceResult = templateService.GetList(new TemplateSearchPamater());
         if (serviceResult.isActionResult() && serviceResult.isHavingData()) {
             result.setData(serviceResult.getData());
         } else {
@@ -76,13 +76,13 @@ public class ChannelController {
     }
 
     @RequestMapping(value = "add")
-    public TransactionResult<Channel> Add(Channel info) throws Exception {
-        AssertHelper.AssertRangInt(info.getChannelId(), Integer.MIN_VALUE, Integer.MAX_VALUE);
+    public TransactionResult<Template> Add(Template info) throws Exception {
+        AssertHelper.AssertRangInt(info.getTemplateId(), Integer.MIN_VALUE, Integer.MAX_VALUE);
         AssertHelper.AssertStringNullorEmpty(info.getName());
         AssertHelper.AssertStringNullorEmpty(info.getTitle());
-        AssertHelper.AssertStringNullorEmpty(info.getRemark());
-        TransactionResult<Channel> result = new TransactionResult<Channel>();
-        FunctionResult<Channel> serviceResult = channelService.Create(info);
+        AssertHelper.AssertStringNullorEmpty(info.getContent());
+        TransactionResult<Template> result = new TransactionResult<Template>();
+        FunctionResult<Template> serviceResult = templateService.Create(info);
         if (serviceResult.isActionResult() && serviceResult.isHavingData()) {
             result.setData(serviceResult.getData());
         } else {
@@ -93,13 +93,13 @@ public class ChannelController {
     }
 
     @RequestMapping(value = "edit")
-    public TransactionResult<Boolean> Edit(Channel info) throws Exception {
-        AssertHelper.AssertRangInt(info.getChannelId(), Integer.MIN_VALUE, Integer.MAX_VALUE);
+    public TransactionResult<Boolean> Edit(Template info) throws Exception {
+        AssertHelper.AssertRangInt(info.getTemplateId(), Integer.MIN_VALUE, Integer.MAX_VALUE);
         AssertHelper.AssertStringNullorEmpty(info.getName());
         AssertHelper.AssertStringNullorEmpty(info.getTitle());
-        AssertHelper.AssertStringNullorEmpty(info.getRemark());
+        AssertHelper.AssertStringNullorEmpty(info.getContent());
         TransactionResult<Boolean> result = new TransactionResult<Boolean>();
-        FunctionOpenResult<Boolean> serviceResult = channelService.UpdateByID(info);
+        FunctionOpenResult<Boolean> serviceResult = templateService.UpdateByID(info);
         if (serviceResult.isActionResult()) {
             result.setData(serviceResult.getData());
         } else {
@@ -115,7 +115,7 @@ public class ChannelController {
         TransactionResult<Boolean> result = new TransactionResult<Boolean>();
         List<Integer> ids = new ArrayList<>();
         ids.add(id);
-        FunctionOpenResult<Boolean> serviceResult = channelService.DeleteByID(ids);
+        FunctionOpenResult<Boolean> serviceResult = templateService.DeleteByID(ids);
         if (serviceResult.isActionResult()) {
             result.setData(serviceResult.getData());
         } else {

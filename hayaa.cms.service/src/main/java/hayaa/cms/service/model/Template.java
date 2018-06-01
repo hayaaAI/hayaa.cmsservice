@@ -2,15 +2,15 @@ package hayaa.cms.service.model;
 
 import hayaa.basemodel.model.BaseData;
 
-public class WebSite extends BaseData {
-    private Integer webSiteId;
+public class Template extends BaseData {
+    private Integer templateId;
 
-    public void setWebSiteId(Integer webSiteIdvalue) {
-        this.webSiteId = webSiteIdvalue;
+    public void setTemplateId(Integer templateIdvalue) {
+        this.templateId = templateIdvalue;
     }
 
-    public Integer getWebSiteId() {
-        return this.webSiteId;
+    public Integer getTemplateId() {
+        return this.templateId;
     }
 
     private String name;
@@ -33,13 +33,13 @@ public class WebSite extends BaseData {
         return this.title;
     }
 
-    private String remark;
+    private String content;
 
-    public void setRemark(String remarkvalue) {
-        this.remark = remarkvalue;
+    public void setContent(String contentvalue) {
+        this.content = contentvalue;
     }
 
-    public String getRemark() {
-        return this.remark;
+    public String getContent() {
+        return this.content;
     }
 }

@@ -18,6 +18,4 @@ interface Rel_WebSite_Channel_ArticleMapper {
 
     @Select("select * from Rel_WebSite_Channel_Article where Rel_WebSite_Channel_ArticleId =#{Id}")
     Rel_WebSite_Channel_Article get(int Id);
-
-    List<Rel_WebSite_Channel_Article> getList(@Param("searchPamater") Rel_WebSite_Channel_ArticleSearchPamater searchPamater);
 }

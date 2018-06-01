@@ -24,7 +24,7 @@ public class ArticleService implements IArticleService {
     public FunctionResult<Article> Create(Article info) {
         FunctionResult<Article> r = new FunctionResult<Article>();
         articleMapper.insert(info);
-        if (info.getarticleId() > 0) {
+        if (info.getArticleId() > 0) {
             r.setData(info);
         }
         return r;

@@ -2,76 +2,54 @@ package hayaa.cms.service.model;
 
 import hayaa.basemodel.model.BaseData;
 
-import java.util.Date;
-
 public class Article extends BaseData {
     private Integer articleId;
 
-    public void setarticleId(Integer articleIdvalue) {
+    public void setArticleId(Integer articleIdvalue) {
         this.articleId = articleIdvalue;
     }
 
-    public Integer getarticleId() {
+    public Integer getArticleId() {
         return this.articleId;
     }
 
     private String title;
 
-    public void settitle(String titlevalue) {
+    public void setTitle(String titlevalue) {
         this.title = titlevalue;
     }
 
-    public String gettitle() {
+    public String getTitle() {
         return this.title;
     }
 
     private String subTitle;
 
-    public void setsubTitle(String subTitlevalue) {
+    public void setSubTitle(String subTitlevalue) {
         this.subTitle = subTitlevalue;
     }
 
-    public String getsubTitle() {
+    public String getSubTitle() {
         return this.subTitle;
     }
 
     private String content;
 
-    public void setcontent(String contentvalue) {
+    public void setContent(String contentvalue) {
         this.content = contentvalue;
     }
 
-    public String getcontent() {
+    public String getContent() {
         return this.content;
     }
 
     private String seo;
 
-    public void setseo(String seovalue) {
+    public void setSeo(String seovalue) {
         this.seo = seovalue;
     }
 
-    public String getseo() {
+    public String getSeo() {
         return this.seo;
-    }
-
-    private Date createTime;
-
-    public void setcreateTime(Date createTimevalue) {
-        this.createTime = createTimevalue;
-    }
-
-    public Date getcreateTime() {
-        return this.createTime;
-    }
-
-    private Date updateTime;
-
-    public void setupdateTime(Date updateTimevalue) {
-        this.updateTime = updateTimevalue;
-    }
-
-    public Date getupdateTime() {
-        return this.updateTime;
     }
 }

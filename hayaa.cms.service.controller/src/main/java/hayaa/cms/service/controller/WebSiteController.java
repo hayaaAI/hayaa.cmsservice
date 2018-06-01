@@ -77,10 +77,10 @@ public class WebSiteController {
 
     @RequestMapping(value = "add")
     public TransactionResult<WebSite> Add(WebSite info) throws Exception {
-        AssertHelper.AssertRangInt(info.getwebSiteId(), Integer.MIN_VALUE, Integer.MAX_VALUE);
-        AssertHelper.AssertStringNullorEmpty(info.getname());
-        AssertHelper.AssertStringNullorEmpty(info.gettitle());
-        AssertHelper.AssertStringNullorEmpty(info.getremark());
+        AssertHelper.AssertRangInt(info.getWebSiteId(), Integer.MIN_VALUE, Integer.MAX_VALUE);
+        AssertHelper.AssertStringNullorEmpty(info.getName());
+        AssertHelper.AssertStringNullorEmpty(info.getTitle());
+        AssertHelper.AssertStringNullorEmpty(info.getRemark());
         TransactionResult<WebSite> result = new TransactionResult<WebSite>();
         FunctionResult<WebSite> serviceResult = webSiteService.Create(info);
         if (serviceResult.isActionResult() && serviceResult.isHavingData()) {
@@ -94,10 +94,10 @@ public class WebSiteController {
 
     @RequestMapping(value = "edit")
     public TransactionResult<Boolean> Edit(WebSite info) throws Exception {
-        AssertHelper.AssertRangInt(info.getwebSiteId(), Integer.MIN_VALUE, Integer.MAX_VALUE);
-        AssertHelper.AssertStringNullorEmpty(info.getname());
-        AssertHelper.AssertStringNullorEmpty(info.gettitle());
-        AssertHelper.AssertStringNullorEmpty(info.getremark());
+        AssertHelper.AssertRangInt(info.getWebSiteId(), Integer.MIN_VALUE, Integer.MAX_VALUE);
+        AssertHelper.AssertStringNullorEmpty(info.getName());
+        AssertHelper.AssertStringNullorEmpty(info.getTitle());
+        AssertHelper.AssertStringNullorEmpty(info.getRemark());
         TransactionResult<Boolean> result = new TransactionResult<Boolean>();
         FunctionOpenResult<Boolean> serviceResult = webSiteService.UpdateByID(info);
         if (serviceResult.isActionResult()) {

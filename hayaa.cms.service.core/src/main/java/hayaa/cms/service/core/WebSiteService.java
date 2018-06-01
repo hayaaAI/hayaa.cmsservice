@@ -24,7 +24,7 @@ public class WebSiteService implements IWebSiteService {
     public FunctionResult<WebSite> Create(WebSite info) {
         FunctionResult<WebSite> r = new FunctionResult<WebSite>();
         webSiteMapper.insert(info);
-        if (info.getwebSiteId() > 0) {
+        if (info.getWebSiteId() > 0) {
             r.setData(info);
         }
         return r;
