@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE mapper PUBLIC " -//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hayaa.cms.service.core.ArticleMapper">
+    <select id="getList" resultType="hayaa.cms.service.model.Article">select * from Article
+        <where>
+            <if test="searchPamater.articleId != null">articleId = #{searchPamater.articleId}</if>
+            <if test="searchPamater.articleIdMax != null and searchPamater.articleIdMin != null">articleId BETWEEN
+                #{searchPamater.articleIdMin} to #{searchPamater.articleIdMax}
+            </if>
+            <if test="searchPamater.title != null">AND title like "%"#{searchPamater.title}"%"</if>
+            <if test="searchPamater.subTitle != null">AND subTitle like "%"#{searchPamater.subTitle}"%"</if>
+            <if test="searchPamater.content != null">AND content like "%"#{searchPamater.content}"%"</if>
+            <if test="searchPamater.seo != null">AND seo like "%"#{searchPamater.seo}"%"</if>
+            <if test="searchPamater.createTime != null">AND createTime = #{searchPamater.createTime}</if>
+            <if test="searchPamater.createTimeMax != null and searchPamater.createTimeMin != null">AND createTime
+                BETWEEN #{searchPamater.createTimeMin} to #{searchPamater.createTimeMax}
+            </if>
+            <if test="searchPamater.updateTime != null">AND updateTime = #{searchPamater.updateTime}</if>
+            <if test="searchPamater.updateTimeMax != null and searchPamater.updateTimeMin != null">AND updateTime
+                BETWEEN #{searchPamater.updateTimeMin} to #{searchPamater.updateTimeMax}
+            </if>
+        </where>
+    </select>
+</mapper>

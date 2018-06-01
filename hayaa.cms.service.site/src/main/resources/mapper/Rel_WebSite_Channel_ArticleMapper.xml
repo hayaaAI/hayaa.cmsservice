@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE mapper PUBLIC " -//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hayaa.cms.service.core.Rel_WebSite_Channel_ArticleMapper">
+    <select id="getList" resultType="hayaa.cms.service.model.Rel_WebSite_Channel_Article">select * from
+        Rel_WebSite_Channel_Article
+        <where>
+            <if test="searchPamater.Id != null">Id = #{searchPamater.Id}</if>
+            <if test="searchPamater.IdMax != null and searchPamater.IdMin != null">Id BETWEEN #{searchPamater.IdMin} to
+                #{searchPamater.IdMax}
+            </if>
+            <if test="searchPamater.webSiteId != null">AND webSiteId = #{searchPamater.webSiteId}</if>
+            <if test="searchPamater.webSiteIdMax != null and searchPamater.webSiteIdMin != null">AND webSiteId BETWEEN
+                #{searchPamater.webSiteIdMin} to #{searchPamater.webSiteIdMax}
+            </if>
+            <if test="searchPamater.channelId != null">AND channelId = #{searchPamater.channelId}</if>
+            <if test="searchPamater.channelIdMax != null and searchPamater.channelIdMin != null">AND channelId BETWEEN
+                #{searchPamater.channelIdMin} to #{searchPamater.channelIdMax}
+            </if>
+            <if test="searchPamater.articleId != null">AND articleId = #{searchPamater.articleId}</if>
+            <if test="searchPamater.articleIdMax != null and searchPamater.articleIdMin != null">AND articleId BETWEEN
+                #{searchPamater.articleIdMin} to #{searchPamater.articleIdMax}
+            </if>
+            <if test="searchPamater.createTime != null">AND createTime = #{searchPamater.createTime}</if>
+            <if test="searchPamater.createTimeMax != null and searchPamater.createTimeMin != null">AND createTime
+                BETWEEN #{searchPamater.createTimeMin} to #{searchPamater.createTimeMax}
+            </if>
+        </where>
+    </select>
+</mapper>
