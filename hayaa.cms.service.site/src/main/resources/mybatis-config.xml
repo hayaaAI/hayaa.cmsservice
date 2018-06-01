@@ -1,0 +1,12 @@
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <package name="hayaa.cms.service.core"/>
+    </typeAliases>
+    <mappers>
+        <mapper resource="mapper/ArticleMapper.xml"/>
+        <mapper resource="mapper/ChannelMapper.xml"/>
+
+        <mapper resource="mapper/WebSiteMapper.xml"/>
+    </mappers>
+</configuration>
